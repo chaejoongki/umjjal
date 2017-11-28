@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/LayoutContainer" android:tag="layout/viewholder_post_0" android:background="@color/bgWhite" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_xxxs"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/margin_sm" android:paddingTop="@dimen/margin_s" android:paddingRight="@dimen/margin_s" android:paddingBottom="@dimen/margin_s" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:textSize="@dimen/text_l" android:textStyle="bold" android:textColor="@color/deepGray" android:id="@+id/TextViewTitle" android:tag="binding_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_xs" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/margin_ss">
+                <ImageView android:id="@+id/ImageViewLevelImage" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginRight="@dimen/margin_xs" />
+                <TextView android:textColor="@color/textGray" android:id="@+id/TextViewLevel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_sss" />
+                <TextView android:textColor="@color/textGray" android:id="@+id/TextViewCreatorName" android:tag="binding_2" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textStyle="bold" android:textColor="@color/textGray" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/margin_ss" android:layout_marginRight="@dimen/margin_ss" android:text="·" />
+                <TextView android:textColor="@color/textGray" android:id="@+id/TextViewDate" android:tag="binding_3" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout android:orientation="horizontal" android:id="@+id/LayoutLikeReplyContainer" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textColor="@color/textGray" android:id="@+id/TextViewLike" android:tag="binding_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/margin_m" android:drawableLeft="@drawable/ic_thumb_up_white_18dp" android:drawablePadding="@dimen/margin_ss" />
+                <TextView android:textColor="@color/textGray" android:id="@+id/TextViewReply" android:tag="binding_5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/ic_textsms_white_18dp" android:drawablePadding="@dimen/margin_ss" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.setodio.basemodule.CustomViews.SquareImageView android:layout_gravity="center_vertical" android:id="@+id/ImageViewThumbnail" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_marginTop="@dimen/margin_ss" android:layout_marginRight="@dimen/margin_ss" android:layout_marginBottom="@dimen/margin_ss" android:scaleType="fitXY" />
+    </LinearLayout>
+    <View android:id="@+id/ViewBottomLine" android:background="@color/bgWhite" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+</FrameLayout>
