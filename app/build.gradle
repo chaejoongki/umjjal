@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.guers.umjjal"
-        minSdkVersion 14
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -37,4 +37,8 @@ dependencies {
     // KaKaoSDK
     compile 'com.googlecode.android-query:android-query:0.25.9'
     //AQuery
+    implementation files('libs/picasso-2.5.2.jar')
+
+    //Picasso
+    compile files('libs/picasso-2.5.2.jar')
 }

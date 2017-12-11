@@ -8,6 +8,7 @@ import android.content.pm.Signature;
 import android.util.Base64;
 import android.util.Log;
 
+import com.bumptech.glide.Glide;
 import com.kakao.auth.ApprovalType;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
@@ -25,6 +26,9 @@ import static com.kakao.util.helper.Utility.getPackageInfo;
  */
 
 public class App extends Application {
+
+
+
 
     private class KakaoSDKAdapter extends KakaoAdapter {
 

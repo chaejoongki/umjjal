@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fitsSystemWindows="true"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/appbar"
+            android:fillViewport="true"
+            android:tag="layout/activity_write_post_0">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/EditTextTitle"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/item_size_m"
+                    android:background="@color/bgWhite"
+                    android:hint="제목"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="2"
+                    android:paddingLeft="@dimen/margin_s"
+                    android:paddingRight="@dimen/margin_s"
+                    android:textColor="@color/primaryBlack"
+                    android:textColorHint="@color/gray" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0dip"
+                    android:background="@color/gray" />
+
+                <EditText
+                    android:id="@+id/EditTextBody"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.0dip"
+                    android:layout_weight="1.0"
+                    android:background="@color/bgWhite"
+                    android:gravity="top"
+                    android:hint="내용"
+                    android:inputType="textMultiLine"
+                    android:maxLength="1000"
+                    android:paddingLeft="@dimen/margin_s"
+                    android:paddingRight="@dimen/margin_s"
+                    android:paddingTop="@dimen/margin_s"
+                    android:textColor="@color/primaryBlack"
+                    android:textColorHint="@color/gray" />
+
+                <LinearLayout
+                    android:id="@+id/LayoutImagesContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_s"
+                    android:orientation="horizontal">
+
+                    <com.guers.umjjal.custom.CustomImageView
+                        android:id="@+id/SelectView1"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin_m"
+                        android:layout_weight="1.0" />
+
+                    <com.guers.umjjal.custom.CustomImageView
+                        android:id="@+id/SelectView2"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="@dimen/margin_ss"
+                        android:layout_marginRight="@dimen/margin_ss"
+                        android:layout_weight="1.0"
+                        android:visibility="invisible"
+
+                        />
+
+                    <com.guers.umjjal.custom.CustomImageView
+                        android:id="@+id/SelectView3"
+                        android:layout_width="0.0dip"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="@dimen/margin_m"
+                        android:layout_weight="1.0"
+                        android:visibility="invisible"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

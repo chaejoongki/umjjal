@@ -27,6 +27,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 public class CheeseDetailActivity extends AppCompatActivity {
@@ -58,10 +59,14 @@ public class CheeseDetailActivity extends AppCompatActivity {
 
 
         GlideDrawableImageViewTarget glideDrawableImageViewTarget = new GlideDrawableImageViewTarget(imageView);
-        Glide.with(this).load(R.drawable.img2).into(glideDrawableImageViewTarget);
+
+        Glide.with(this).load(R.drawable.img2).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .thumbnail(0.1f).into(glideDrawableImageViewTarget);
+
 
         glideDrawableImageViewTarget = new GlideDrawableImageViewTarget(imageView2);
-        Glide.with(this).load(R.drawable.image1).into(glideDrawableImageViewTarget);
+        Glide.with(this).load(R.drawable.image1).skipMemoryCache(true).diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .thumbnail(0.1f).into(glideDrawableImageViewTarget);
 
 
         textView1.setText("내용이 들어간다!!!!!!!!!!!!");

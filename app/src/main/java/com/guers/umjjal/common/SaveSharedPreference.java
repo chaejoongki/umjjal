@@ -53,8 +53,8 @@ public class SaveSharedPreference {
 
     public static void clearUserName(Context ctx) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
-        editor.clear(); //clear all stored data editor.commit(); }
-
+        editor.clear(); //clear all stored data
+        editor.commit();
 
     }
 }

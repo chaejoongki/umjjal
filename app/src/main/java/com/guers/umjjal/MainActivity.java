@@ -43,6 +43,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.guers.umjjal.common.SaveSharedPreference;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private Menu menuNav;
     private final static int ACTIVITY_MENU_CODE_LOGIN=101;
+    private final static int ACTIVITY_MENU_CODE_WRITE=102;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,19 +89,22 @@ public class MainActivity extends AppCompatActivity {
             setupViewPager(viewPager);
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton writeButton = (FloatingActionButton) findViewById(R.id.writeButton);
+
+
+        writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(getApplication(), WriteActivity.class);
+                startActivityForResult(intent,ACTIVITY_MENU_CODE_WRITE);
             }
         });
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-
+        loginStatusCheck();
     }
 
     @Override
@@ -179,18 +185,11 @@ public class MainActivity extends AppCompatActivity {
 
                 switch(menuItem.getItemId()){
                     case R.id.nav_login:
-                        if(menuItem.getTitle().equals("로그인")){
-                            Toast.makeText(getApplicationContext(),"선택 메뉴 : 로그인",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(getApplication(), LoginActivity.class);
-                            startActivityForResult(intent,ACTIVITY_MENU_CODE_LOGIN);
-                        }else{
-                            //로그아웃
-
-                        }
-
-
-
+                        Intent intent = new Intent(getApplication(), LoginActivity.class);
+                        startActivityForResult(intent,ACTIVITY_MENU_CODE_LOGIN);
                         break;
+                    case R.id.nav_logout:
+                        requestLogout();
                     case R.id.nav_home:
                         Toast.makeText(getApplicationContext(),"선택 메뉴 : 공지사항",Toast.LENGTH_LONG).show();
                         break;
@@ -203,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
 
-                menuItem.setChecked(true);
+                //menuItem.setChecked(true);
                 mDrawerLayout.closeDrawers();
                 return true;
             }
@@ -214,13 +213,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if(ACTIVITY_MENU_CODE_LOGIN == requestCode){
-            TextView user_nick_name = findViewById(R.id.user_nick_name);
-            CircleImageView user_image = findViewById(R.id.user_image);
-            MenuItem nav_login = menuNav.findItem(R.id.nav_login);
+            loginStatusCheck();
+        }
+
+    }
+
+    public void loginStatusCheck(){
+        View nav_view = navigationView.getHeaderView(0);
+
+        TextView user_nick_name = nav_view.findViewById(R.id.user_nick_name);
+        CircleImageView user_image = nav_view.findViewById(R.id.user_image);
+        MenuItem nav_login = menuNav.findItem(R.id.nav_login);
+        MenuItem nav_logout = menuNav.findItem(R.id.nav_logout);
+
+
+        Log.e("user_nick_name ->>","Object ->"+user_nick_name);
+        if(!TextUtils.isEmpty(SaveSharedPreference.getUserId(getApplicationContext()))){    //로그인상태
 
             user_nick_name.setText(SaveSharedPreference.getUserNickName(getApplicationContext()));
-            System.out.println(nav_login);
-            nav_login.setTitle("로그아웃");
 
             if(TextUtils.isEmpty(SaveSharedPreference.getUserImagePath(getApplicationContext()))){
                 user_image.setImageDrawable(getResources().getDrawable(R.drawable.img_profile_default));
@@ -228,7 +238,25 @@ public class MainActivity extends AppCompatActivity {
                 user_image.setImageURI(Uri.parse(SaveSharedPreference.getUserImagePath(getApplicationContext())));
             }
 
+            nav_login.setVisible(false);
+            nav_logout.setVisible(true);
+        }else{
+            nav_login.setVisible(true);
+            nav_logout.setVisible(false);
         }
+    }
+
+    public void requestLogout(){
+        Log.e("logout","카카오 로그아웃");
+        switch (SaveSharedPreference.getProvideTarget(getApplicationContext())){
+            case SaveSharedPreference.PREF_PROVIDE_KAKAO:
+
+                SaveSharedPreference.clearUserName(getApplicationContext());
+                loginStatusCheck();
+                break;
+
+        }
+
 
     }
 
