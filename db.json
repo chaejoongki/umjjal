@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "imgUrl": "https://codingislove.com/wp-content/uploads/2018/12/REACT-LAZY-695x480.png",
+    "title": "React Lazy Loading",
+    "content": "Being a developer we are always interested in adding third-party libraries so that we can save time and effort of writing our own code. After this, we have to take care of the bundle size. We should make our application to load fast even after adding lot third-party libraries.After working on react for the past two years, I could tell it was a little difficult to optimize your app using Webpack or other tools. Webpack is a great tool it provides numerous ways to optimize your app but you need to spend a lot of time and effort to learn and to apply them on your app.Code splittingCode splitting is a technique of dividing large bundle into small piece of  bundles and then load them on demand whenever required.",
+    "createAt": "2019-01-01",
+    "category": "CSS",
+  },
+  {
+    "id": "2",
+    "imgUrl": "https://codingislove.com/wp-content/uploads/nc-efi-placeholder-768x432.png",
+    "title": "Test driven development with golang",
+    "content": "Testing is an investigation done to make sure that the code we have written is reliable and meets the given requirements. The most common way to test code is to write unit tests for different units of the code base. This makes it easy to isolate the bugs in the code base. All of the software development processes include testing as an integral part. The one we are going to talk about today is called Test Driven Development or TDD in short",
+    "createAt": "2019-01-05",
+    "category": "JAVASCRIPT",
+  }
+]
