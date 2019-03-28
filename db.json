@@ -1,14 +1,21 @@
 {
   "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+     {
+      "id": "1",
+      "imgUrl": "https://codingislove.com/wp-content/uploads/2018/12/REACT-LAZY-695x480.png",
+      "title": "React Lazy Loading",
+      "content": "qqq",
+      "createAt": "2019-01-01",
+      "category": "CSS"
+    },
+    {
+      "id": "2",
+      "imgUrl": "https://codingislove.com/wp-content/uploads/nc-efi-placeholder-768x432.png",
+      "title": "Test driven development with golang",
+      "content": "dddd",
+      "createAt": "2019-01-05",
+      "category": "JAVASCRIPT"
+    }  
+  ]
+  
 }
